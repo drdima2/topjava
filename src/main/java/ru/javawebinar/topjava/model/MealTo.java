@@ -13,6 +13,7 @@ public class MealTo {
 //    private final AtomicBoolean excess;
     private final boolean excess;
 
+
     public MealTo(LocalDateTime dateTime, String description, int calories, boolean excess) {
         this.dateTime = dateTime;
         this.description = description;
@@ -20,17 +21,20 @@ public class MealTo {
         this.excess = excess;
     }
 
+
+
 //    public Boolean getExcess() {
 //        return excess.get();
 //    }
 
     @Override
     public String toString() {
-        return "MealTo{" +
-                "dateTime=" + dateTime +
-                ", description='" + description + '\'' +
-                ", calories=" + calories +
-                ", excess=" + excess +
-                '}';
+        final StringBuilder sb = new StringBuilder("UserMealWithExceed{");
+        sb.append("dateTime=").append(dateTime);
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", calories=").append(calories);
+        sb.append(", exceed=").append(excess);
+        sb.append('}');
+        return sb.toString();
     }
 }
