@@ -12,8 +12,7 @@
 		<table border="1">
 			<thead>
 				<tr>
-					<th>Date</th>
-					<th>Time</th>
+					<th>Date / Time</th>
 					<th>Description</th>
 					<th>Calories</th>
 				</tr>
@@ -21,8 +20,7 @@
 			<tbody>
 				<c:forEach var="mealTo" items="${mealToList}">
 					<tr style="color:${mealTo.excess ? 'red' : 'green'}">
-						<td>${mealTo.dateTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))}</td>
-						<td>${mealTo.dateTime.format(DateTimeFormatter.ofPattern("HH:mm"))}</td>
+						<td>${mealTo.dateTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))}</td>
 						<td>${mealTo.description}</td>
 						<td>${mealTo.calories}</td>
 					</tr>
