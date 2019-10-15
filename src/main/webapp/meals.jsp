@@ -12,17 +12,22 @@
 		<table border="1">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>Date / Time</th>
 					<th>Description</th>
 					<th>Calories</th>
+					<th colspan=2>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="mealTo" items="${mealToList}">
 					<tr style="color:${mealTo.excess ? 'red' : 'green'}">
+						<td>${mealTo.id}</td>
 						<td>${mealTo.dateTime.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))}</td>
 						<td>${mealTo.description}</td>
 						<td>${mealTo.calories}</td>
+						<td><a href="?action=edit&mealId=${mealTo.id}">Edit</a></td>
+						<td><a href="?action=delete&mealId=${mealTo.id}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

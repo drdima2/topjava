@@ -3,6 +3,7 @@ package ru.javawebinar.topjava.model;
 import java.time.LocalDateTime;
 
 public class MealTo {
+    private Long id;
     private final LocalDateTime dateTime;
     private final String description;
     private final int calories;
@@ -15,6 +16,12 @@ public class MealTo {
         this.excess = excess;
     }
 
+    public MealTo(Long id, LocalDateTime dateTime, String description, int calories, boolean excess) {
+        this(dateTime, description, calories, excess);
+        this.id = id;
+    }
+
+
     @Override
     public String toString() {
         return "MealTo{" +
@@ -23,6 +30,10 @@ public class MealTo {
                 ", calories=" + calories +
                 ", excess=" + excess +
                 '}';
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public LocalDateTime getDateTime() {
