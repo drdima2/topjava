@@ -1,16 +1,15 @@
 package ru.javawebinar.topjava.util;
 
 import ru.javawebinar.topjava.model.Meal;
-import ru.javawebinar.topjava.model.MealTo;
+import ru.javawebinar.topjava.to.MealTo;
+import ru.javawebinar.topjava.model.Role;
+import ru.javawebinar.topjava.model.User;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -25,6 +24,20 @@ public class MealsUtil {
             new Meal(LocalDateTime.of(2015, Month.MAY, 31, 13, 0), "Обед", 500),
             new Meal(LocalDateTime.of(2015, Month.MAY, 31, 20, 0), "Ужин", 510)
     );
+
+
+    public static final List<User> USERS = Arrays.asList(
+            new User("Vasya7", "vasya1@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya2", "vasya2@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya3", "vasya3@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya4", "vasya4@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya5", "vasya5@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya6", "vasya6@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER))),
+            new User("Vasya1", "vasya7@gmail.com","1234",2000,true, new HashSet<>(Arrays.asList(Role.ROLE_USER)))
+
+    );
+
+
 
     public static List<MealTo> getTos(Collection<Meal> meals, int caloriesPerDay) {
         return getFiltered(meals, caloriesPerDay, meal -> true);

@@ -20,6 +20,11 @@ public class User extends AbstractNamedEntity {
 
     private int caloriesPerDay = DEFAULT_CALORIES_PER_DAY;
 
+
+    public User(String name, String email, String password, int caloriesPerDay, boolean enabled,Set<Role> roles) {
+        this(null, name, email, password, caloriesPerDay, true, roles);
+    }
+
     public User(Integer id, String name, String email, String password, Role role, Role... roles) {
         this(id, name, email, password, DEFAULT_CALORIES_PER_DAY, true, EnumSet.of(role, roles));
     }
@@ -30,6 +35,11 @@ public class User extends AbstractNamedEntity {
         this.password = password;
         this.caloriesPerDay = caloriesPerDay;
         this.enabled = enabled;
+        this.roles = roles;
+    }
+
+
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
@@ -76,6 +86,13 @@ public class User extends AbstractNamedEntity {
     public String getPassword() {
         return password;
     }
+
+    public boolean isNew() {
+        return id==null;
+    }
+
+
+
 
     @Override
     public String toString() {
